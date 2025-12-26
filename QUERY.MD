@@ -1,5 +1,13 @@
-# --- REUSABLE SEO FRAGMENT ---
-# Use this to keep page queries clean
+Here is the full, raw content ready for your .md file. I have combined all queries and fragments into one clean document that any developer can copy and paste into their project.
+
+Markdown
+
+# GraphQL Queries Documentation
+
+This file contains all the GraphQL queries used for the website's frontend development.
+
+## Reusable Fragments
+```graphql
 fragment PageSEO on PostTypeSEO {
   title
   metaDesc
@@ -18,8 +26,10 @@ fragment PageSEO on PostTypeSEO {
   twitterImage { sourceUrl }
   schema { raw }
 }
+1. Global Components (Navigation, Footer, Popup)
+Main Menu & Site Logo
+GraphQL
 
-# --- 1. GLOBAL NAVIGATION & SETTINGS ---
 query MainMenu {
   menu(id: "mainmenu", idType: SLUG) {
     menuItems {
@@ -61,8 +71,34 @@ query MainMenu {
     description
   }
 }
+Footer Widgets & Popup
+GraphQL
 
-# --- 2. HOMEPAGE ---
+query FooterAndPopup {
+  footerBuilderWidget1 {
+    type
+    title
+    content
+    image_url
+    image_alt
+    link_to
+    menu_items { label url uri target }
+  }
+  page(id: "popup", idType: URI) {
+    popup {
+      backgroundImage { node { mediaItemUrl altText fileSize } }
+      subTitle
+      mainTitle
+      donateButton { url title target }
+      shelbyImage { node { mediaItemUrl altText fileSize } }
+      logo { node { mediaItemUrl altText fileSize } }
+    }
+  }
+}
+2. Main Pages
+Homepage
+GraphQL
+
 query Homepage {
   page(id: "/", idType: URI) {
     id
@@ -110,8 +146,9 @@ query Homepage {
     }
   }
 }
+About Page
+GraphQL
 
-# --- 3. ABOUT PAGE ---
 query AboutPage {
   page(id: "about", idType: URI) {
     title
@@ -135,8 +172,9 @@ query AboutPage {
     }
   }
 }
+Endorsements / Life Experience
+GraphQL
 
-# --- 4. ENDORSEMENTS / EXPERIENCE ---
 query Endorsements {
   page(id: "life-experience", idType: URI) {
     title
@@ -167,8 +205,9 @@ query Endorsements {
     }
   }
 }
+Proposed Policies
+GraphQL
 
-# --- 5. PROPOSED POLICY ---
 query Proposed {
   page(id: "proposedlegislativeandpolicychanges", idType: URI) {
     title
@@ -187,8 +226,9 @@ query Proposed {
     }
   }
 }
+Contact Page
+GraphQL
 
-# --- 6. CONTACT PAGE ---
 query ContactPage {
   page(id: "contact", idType: URI) {
     title
@@ -206,42 +246,10 @@ query ContactPage {
   }
 }
 
-# --- 7. FOOTER & POPUP ---
-query FooterAndPopup {
-  footerBuilderWidget1 {
-    type
-    title
-    content
-    image_url
-    image_alt
-    link_to
-    menu_items { label url uri target }
-  }
-  page(id: "popup", idType: URI) {
-    popup {
-      backgroundImage { node { mediaItemUrl altText fileSize } }
-      subTitle
-      mainTitle
-      donateButton { url title target }
-      shelbyImage { node { mediaItemUrl altText fileSize } }
-      logo { node { mediaItemUrl altText fileSize } }
-    }
-  }
-}
 
 
 
-
-
-
-
-
-
-
-
-
-RAW FORMATE I USED IN THE SITE 
-
+##Raw code i used in astro js 
 
 query MainMenu {
   menu(id: "mainmenu", idType: SLUG) {
